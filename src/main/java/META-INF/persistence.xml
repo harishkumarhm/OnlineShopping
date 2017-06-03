@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<!-- MySQL Datasource -->
+	<!-- <persistence-unit name="JPADB"> <jta-data-source>java:/localdbDS</jta-data-source> 
+		<properties> <property name="showSql" value="true" /> <property name="hibernate.dialect" 
+		value="org.hibernate.dialect.OracleDialect" /> <property name="hibernate.hbm2ddl.auto" 
+		value="create" /> </properties> </persistence-unit> -->
+
+
+	<persistence-unit name="JPADB2">
+		<jta-data-source>java:jboss/localdbDS</jta-data-source>
+		<!--jta-data-source>java:/jboss/datasources/ExampleDS</jta-data-source-->
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>com.shoppingcart.account.Seller</class>
+		<class>com.shoppingcart.account.Address</class>
+		<class>com.shoppingcart.account.User</class>
+		<class>com.shoppingcart.model.Category</class>
+		<class>com.shoppingcart.account.Bidder</class>
+		<class>com.shoppingcart.account.Employee</class>
+		<class>com.shoppingcart.account.Group</class>
+		<class>com.shoppingcart.model.Order</class>
+		<class>com.shoppingcart.model.Item</class>
+		<class>com.shoppingcart.model.Shipping</class>
+		<class>com.shoppingcart.account.BillingInfo</class>
+		<class>com.shoppingcart.model.CreditCard</class>
+		<class>com.shoppingcart.model.Billing</class>
+		<class>com.shoppingcart.model.Email</class>
+		<class>com.shoppingcart.model.Bid</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<validation-mode>NONE</validation-mode>
+		<properties>
+			<property name="eclipselink.target-database"
+				value="org.eclipse.persistence.platform.database.H2Platform" />
+			<property name="eclipselink.cache.shared.default" value="false" />
+			<property name="eclipselink.logging.level" value="FINE" />
+			<property name="eclipselink.ddl-generation" value="create-tables" />
+		
+			<property name="eclipselink.persistence-context.flush-mode"
+				value="commit" />
+		</properties>
+	</persistence-unit>
+
+	<!-- <persistence-unit name="generateSchema" transaction-type="RESOURCE_LOCAL"> 
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> <exclude-unlisted-classes>false</exclude-unlisted-classes> 
+		<properties> <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/> 
+		<property name="eclipselink.jdbc.driver" value="oracle.jdbc.OracleDriver"/> 
+		<property name="eclipselink.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe"/> 
+		<property name="eclipselink.jdbc.user" value="harish"/> <property name="eclipselink.jdbc.password" 
+		value="password"/> </properties> </persistence-unit> -->
+</persistence>
+
